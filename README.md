@@ -101,5 +101,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-If you have any questions, feel free to open an issue or contact us at [your-email@example.com](mailto:shubhamgarg1971@gmail.com).
+If you have any questions, feel free to open an issue or contact us at [shubhamgarg1971@gmail.com ](mailto:shubhamgarg1971@gmail.com).
 
