@@ -34,8 +34,8 @@ To get started with this project, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/offline-training-ds-ml.git
-   cd offline-training-ds-ml
+   git clone https://github.com/ShubhamCoder-In/offline_training_assignment-.git
+   cd offline_training_assignment-.git
    ```
 
 2. **Set up the virtual environment**:
