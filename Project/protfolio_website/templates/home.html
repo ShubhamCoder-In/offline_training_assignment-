@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio - Home</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        background: #007bff;
+        color: white;
+        padding: 100px 0;
+        position: relative;
+      }
+
+      .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .animated-heading {
+        animation: fadeIn 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      footer {
+        background: #f8f9fa;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">My Portfolio</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/project">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/experience">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/resume">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header Section with Animation -->
+    <header class="jumbotron text-center">
+      <div class="header-content">
+        <h1 class="display-4 animated-heading">Hello, I'm [Your Name]</h1>
+        <p class="lead">A 3rd-year Information Technology Student</p>
+        <img
+          src="static/face.jpeg"
+          class="img-fluid rounded-circle"
+          alt="Your Image"
+          style="width: 250px; height: 250px; image-rendering: pixelated; image-resolution: 1080; object-fit: cover;"
+        />
+      </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="container">
+      <h2>Welcome to My Portfolio</h2>
+      <p>
+        Welcome to my portfolio website! Here you will find information about my
+        skills, projects, and experience as a B.Tech student in Information
+        Technology. Feel free to explore and learn more about me and my work.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+      <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <!-- <script>
+      // Custom JavaScript for additional interactivity (if needed)
+      document.addEventListener("DOMContentLoaded", function () {
+        // Example: Scroll to section animation
+        document.querySelectorAll("a.nav-link").forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        });
+      });
+    </script> -->
+  </body>
+</html>

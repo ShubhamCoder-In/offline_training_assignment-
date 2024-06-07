@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - About Us</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #007bff;
+            color: white;
+            padding: 100px 0;
+            animation: fadeIn 2s;
+        }
+
+        section {
+            padding: 60px 0;
+            animation: slideIn 1s ease-out;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 20px 0;
+            animation: fadeIn 2s;
+        }
+
+        .about-card {
+            animation: grow 1s;
+            transition: transform 0.3s;
+        }
+
+        .about-card:hover {
+            transform: scale(1.05);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .icon {
+            font-size: 24px;
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        .contact-info {
+            animation: fadeIn 1.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes grow {
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">home</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/project">Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/experience">Experience</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/resume">Resume</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact">Contact</a>
+                </li>
+              </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="jumbotron text-center">
+        <h1 class="display-4">About Us</h1>
+        <p class="lead">Learn more about our team and our journey.</p>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about" class="container">
+        <h2>Our Story</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card about-card">
+                    <img src="https://source.unsplash.com/random/800x600?team" class="card-img-top about-image" alt="Our Team">
+                    <div class="card-body">
+                        <h5 class="card-title">Who We Are</h5>
+                        <p class="card-text">We are a team of passionate professionals dedicated to delivering high-quality projects. Our diverse skill set and experience allow us to tackle a wide range of challenges and create innovative solutions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card about-card">
+                    <img src="https://source.unsplash.com/random/800x600?mission" class="card-img-top about-image" alt="Our Mission">
+                    <div class="card-body">
+                        <h5 class="card-title">Our Mission</h5>
+                        <p class="card-text">Our mission is to empower individuals and organizations through technology. We strive to make a positive impact by creating user-friendly, efficient, and effective solutions that meet our clients' needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section id="contact-info" class="container contact-info">
+        <h2>Contact Information</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h5><i class="fas fa-phone icon"></i> Phone</h5>
+                <p>+1 (123) 456-7890</p>
+            </div>
+            <div class="col-md-4">
+                <h5><i class="fas fa-envelope icon"></i> Email</h5>
+                <p>yourname@example.com</p>
+            </div>
+            <div class="col-md-4">
+                <h5><i class="fas fa-map-marker-alt icon"></i> Address</h5>
+                <p>1234 Street Name, City, State, ZIP</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
