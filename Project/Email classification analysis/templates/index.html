@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Classification Service</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      /* Custom styles here */
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: #f8f9fa;
+      }
+      .top-header {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+      }
+      .main-content {
+        flex: 1;
+        margin-top: 50px;
+      }
+      .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        width: 100%;
+      }
+      .testimonials,
+      .clients,
+      .features,
+      .comments,
+      .faq {
+        padding: 50px 0;
+        background-color: #ffffff;
+      }
+      .testimonial-item {
+        text-align: center;
+        margin-bottom: 30px;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .testimonial-item h5 {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+      .testimonial-item .rating {
+        color: #ffcc00;
+        font-size: 20px;
+      }
+      .client-item {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .client-logo {
+        max-width: 150px;
+        margin: 0 auto;
+        transition: transform 0.3s;
+      }
+      .client-logo:hover {
+        transform: scale(1.1);
+      }
+      .feature-item {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .comment-form {
+        margin-top: 30px;
+      }
+      .comment-item {
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .faq-item {
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        display: none;
+        margin: 20px auto;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .top-section {
+        background: url("https://picsum.photos/600/400") no-repeat center center;
+        background-size: cover;
+        padding: 100px 0;
+        color: white;
+        text-align: center;
+      }
+      .top-section h1 {
+        font-size: 3rem;
+      }
+      .client-carousel-wrapper {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .client-carousel {
+        display: flex;
+        align-items: center;
+        animation: scroll 20s linear infinite;
+      }
+
+      .client-item {
+        flex: 0 0 15%; /* Show 4 logos at a time */
+        text-align: center;
+        padding: 40px;
+      }
+
+      .client-item img {
+        max-width: 100%;
+        transition: transform 0.3s;
+      }
+
+      .client-item img:hover {
+        transform: scale(1.1);
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Spam Detection</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Top Section -->
+    <div class="top-section">
+      <h1>Welcome to Our Email Classification Service</h1>
+      <p>Detecting spam emails with high accuracy and real-time processing.</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <!-- <h1 class="text-center">Email Classification Service</h1>
+          <p class="lead text-center">
+            Detect whether your email is spam or not with our advanced
+            classification service.
+          </p> -->
+
+          <!-- Demo content with images -->
+          <div class="row">
+            <div class="col-md-12 mt-4">
+              <h3>How It Works</h3>
+              <p>
+                Our Email Classification Service utilizes state-of-the-art
+                machine learning algorithms to analyze the content of your
+                emails.
+              </p>
+              <p>
+                Simply enter your email message in the form below, and we'll
+                predict whether it's spam or not.
+              </p>
+            </div>
+          </div>
+
+          <!-- Email input form -->
+          <form id="emailForm" action="#" method="post">
+            <div class="form-group mt-4">
+              <label for="textarea">Your Email</label>
+              <textarea
+                class="form-control"
+                id="textarea"
+                rows="4"
+                placeholder="Enter your message here"
+                name="email_message"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Submit
+            </button>
+          </form>
+          <div class="loader" id="loader"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+      <div class="container">
+        <h2 class="text-center">Key Features</h2>
+        <div class="row">
+          <div class="col-md-4 feature-item">
+            <h4>High Accuracy</h4>
+            <p>
+              Our service uses advanced algorithms to provide highly accurate
+              spam detection.
+            </p>
+          </div>
+          <div class="col-md-4 feature-item">
+            <h4>Easy Integration</h4>
+            <p>
+              Seamlessly integrate our service into your existing email systems
+              with our APIs.
+            </p>
+          </div>
+          <div class="col-md-4 feature-item">
+            <h4>Real-time Processing</h4>
+            <p>
+              Get instant results with our real-time email analysis and spam
+              detection.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials">
+      <div class="container">
+        <h2 class="text-center">What Our Users Say</h2>
+        <div class="row">
+          <div class="col-md-4 testimonial-item">
+            <p>
+              "This service saved me from numerous phishing attacks. Highly
+              recommend!"
+            </p>
+            <div class="rating">★★★★★</div>
+            <h5>John Doe</h5>
+          </div>
+          <div class="col-md-4 testimonial-item">
+            <p>"Accurate and reliable. A must-have tool for every business."</p>
+            <div class="rating">★★★★☆</div>
+            <h5>Jane Smith</h5>
+          </div>
+          <div class="col-md-4 testimonial-item">
+            <p>
+              "Easy to use and integrates seamlessly with our email system."
+            </p>
+            <div class="rating">★★★★★</div>
+            <h5>Mike Johnson</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clients Section -->
+    <div class="container">
+      <h2 class="text-center">Our Trusted Clients</h2>
+      <div class="client-carousel-wrapper">
+        <div class="client-carousel">
+          <div class="client-item">
+            <a href="https://www.google.com">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                alt="Google Logo"
+              />
+            </a>
+          </div>
+          <div class="client-item">
+            <a href="https://www.apple.com">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                alt="Apple Logo"
+              />
+            </a>
+          </div>
+          <div class="client-item">
+            <a href="https://www.microsoft.com">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                alt="Microsoft Logo"
+              />
+            </a>
+          </div>
+          <div class="client-item">
+            <a href="https://www.amazon.com">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+                alt="Amazon Logo"
+              />
+            </a>
+          </div>
+          <div class="client-item">
+            <a href="https://www.facebook.com">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                alt="Facebook Logo"
+              />
+            </a>
+          </div>
+          <div class="client-item">
+            <a href="https://www.netflix.com">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                alt="Netflix Logo"
+              />
+            </a>
+          </div>
+          <div class="client-item">
+            <a href="https://www.spotify.com">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg"
+                alt="Spotify Logo"
+              />
+            </a>
+          </div>
+          <div class="client-item">
+            <a href="https://www.tesla.com">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg"
+                alt="Tesla Logo"
+              />
+            </a>
+          </div>
+          <div class="client-item">
+            <a href="https://www.nike.com">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg"
+                alt="Nike Logo"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comments Section -->
+    <div class="comments">
+      <div class="container">
+        <h2 class="text-center">Comments</h2>
+        <div class="comment-form">
+          <form id="commentForm" action="#" method="post">
+            <div class="form-group">
+              <label for="comment">Leave a Comment</label>
+              <textarea
+                class="form-control"
+                id="comment"
+                rows="3"
+                placeholder="Enter your comment here"
+                name="comment"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="comment-item">
+          <p><strong>Alice:</strong> Great service! Helped me a lot.</p>
+        </div>
+        <div class="comment-item">
+          <p><strong>Bob:</strong> Very useful and accurate.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div id="faq" class="faq">
+      <div class="container">
+        <h2 class="text-center">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h4>How accurate is the classification?</h4>
+          <p>
+            The classification accuracy depends on various factors, including
+            the quality of data and the algorithms used. Our system strives for
+            high accuracy in detecting spam emails.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4>Is my data secure?</h4>
+          <p>
+            Yes, we prioritize data security. All email content is processed
+            securely and confidentially.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I integrate this service with my existing email system?</h4>
+          <p>
+            Yes, our service can be integrated into various email platforms via
+            APIs or plugins, providing seamless spam detection capabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript for AJAX -->
+    <script>
+      $(document).ready(function () {
+        $("#emailForm").on("submit", function (e) {
+          e.preventDefault();
+          var formData = {
+            email_message: $("#textarea").val(),
+          };
+          $.ajax({
+            type: "POST",
+            url: "/predict", // Replace with your Flask route URL
+            data: formData,
+            dataType: "json",
+            encode: true,
+          })
+            .done(function (data) {
+              // Show a popup/modal with prediction result
+              $("#predictionModal").modal("show");
+              // Display prediction result in the modal
+              if(data.predict_value == "spam" && $("#textarea").val() != "")
+              $("#predictionResult").text("📧 Result:\n\t🚫 Spam!  🛑 This email has been identified as spam.\n\t Please be cautious and avoid interacting with suspicious content.");
+              else if(data.predict_value == "ham" && $("#textarea").val() != "")
+              $("#predictionResult").text("📧 Result:\n\t✅ Not Spam!  🎉 This email is clean and safe to read. \n\tEnjoy your message without worries!");
+              else
+              $("#predictionResult").text("Please enter input get email spam or ham",);
+            })
+            .fail(function (error) {
+              console.error("Error occurred:", error);
+            });
+        });
+
+        $("#commentForm").on("submit", function (e) {
+          e.preventDefault();
+          var comment = $("#comment").val();
+          if (comment.trim() === "") {
+            alert("Comment cannot be empty.");
+            return;
+          }
+          // For demonstration, simply append the comment to the comments section
+          $(".comments").append(
+            '<div class="comment-item"><p><strong>You:</strong> ' +
+              comment +
+              "</p></div>"
+          );
+          $("#comment").val(""); // Clear the textarea
+        });
+      });
+    </script>
+
+    <!-- Modal for Prediction Result -->
+    <div
+      class="modal fade"
+      id="predictionModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="predictionModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="predictionModalLabel">
+              Prediction Result
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="predictionResult"></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted"
+          >© 2024 Spam Detection App. All rights reserved.</span
+        >
+      </div>
+    </footer>
+  </body>
+</html>

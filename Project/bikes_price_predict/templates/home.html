@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .navbar-custom {
+            background-color: #343a40; /* Dark color for navbar */
+        }
+        .jumbotron-custom {
+            background: url('/static/bg.webp') no-repeat center center;
+            background-size: cover;
+            color: white;
+            height: 60vh; /* Adjust height as needed */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        .jumbotron-custom h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+        .jumbotron-custom p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        .content-section {
+            background-color: #ffffff;
+            padding: 50px 20px;
+            margin-top: 20px;
+        }
+        .content-section h2 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">OlD Bikes Price Predict</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron / Hero Section -->
+    <div class="jumbotron jumbotron-custom">
+        <div class="container">
+            <h1 class="display-3">Welcome to Your Website</h1>
+            <p class="lead">Your catchy tagline goes here.</p>
+            <a class="btn btn-primary btn-lg" href="/user_data" role="button">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Main Content Sections -->
+    <div id="about" class="content-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>This section can contain information about your company or project. Tell visitors what you do, your mission, and any other relevant details.</p>
+        </div>
+    </div>
+
+    <div id="services" class="content-section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p>Describe the services you offer. Highlight key features and benefits that potential customers or users might be interested in.</p>
+        </div>
+    </div>
+
+    <div id="contact" class="content-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Provide contact information or a contact form for visitors to get in touch with you. Encourage them to reach out for inquiries or more information.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white">
+        <div class="container text-center">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

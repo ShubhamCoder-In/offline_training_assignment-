@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Soil Testing and Crop Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Custom Styles */
+      header {
+        background: url("https://picsum.photos/id/1003/1600/900") no-repeat
+          center center/cover;
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+      }
+
+      .features,
+      .testimonials,
+      .faq,
+      .tips {
+        padding: 50px 0;
+      }
+
+      .feature,
+      .testimonial,
+      .faq-item {
+        margin-bottom: 30px;
+      }
+
+      .testimonial p {
+        font-style: italic;
+      }
+
+      .faq-item p {
+        display: none;
+      }
+
+      .container {
+        max-width: 800px;
+      }
+
+      .table-container {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar sticky-top navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Soil Testing</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#soil-testing">Soil Testing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonials">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#faq">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tips">Tips</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="container">
+        <h1>Welcome to Soil Testing and Crop Prediction</h1>
+        <p class="lead">
+          Your guide to growing the best crops based on your soil's properties.
+        </p>
+      </div>
+    </header>
+
+    <!-- Soil Testing Form Section -->
+    <section id="soil-testing" class="bg-light py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Test Your Soil</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <form id="soilForm" action="{{url_for('predict')}}" method="post">
+              <div class="form-group">
+                <label for="N">Nitrogen (N):</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="N"
+                  name="N"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="P">Phosphorus (P):</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="P"
+                  name="P"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="K">Potassium (K):</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="K"
+                  name="K"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="temperature">Temperature (°C):</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="temperature"
+                  name="temperature"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="humidity">Humidity (%):</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="humidity"
+                  name="humidity"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="ph">pH Level:</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="ph"
+                  name="ph"
+                  step="0.1"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="rainfall">Rainfall (mm):</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="rainfall"
+                  name="rainfall"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-success btn-block">
+                Predict Best Crops
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Predicted Crop Values Section -->
+    <section id="predicted-crops">
+      <div class="container">
+        <h2 class="text-center mb-4">Predicted Crop Values</h2>
+
+        <div class="table-container" id="tableContainer">
+          <table id="cropTable" class="table table-bordered table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>Crop</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody id="cropTableBody">
+              <!-- Table body will be populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="noDataMessage" class="text-center mt-4" style="display: none">
+          <p>No predicted crop values available.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+      <div class="container">
+        <h2 class="text-center mb-4">Features</h2>
+        <div class="row">
+          <div class="col-lg-4 mb-4">
+            <div class="feature text-center">
+              <h3>Accurate Soil Testing</h3>
+              <p>
+                Get precise measurements of your soil's nutrients and properties
+                to ensure you make informed decisions.
+              </p>
+              <img
+                src="https://picsum.photos/id/1015/800/600"
+                alt="Soil Testing"
+                class="img-fluid rounded"
+              />
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4">
+            <div class="feature text-center">
+              <h3>Crop Recommendations</h3>
+              <p>
+                Based on the soil test results, we recommend the best crops that
+                will thrive in your soil conditions.
+              </p>
+              <img
+                src="https://picsum.photos/id/1018/800/600"
+                alt="Crop Recommendations"
+                class="img-fluid rounded"
+              />
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4">
+            <div class="feature text-center">
+              <h3>Expert Tips</h3>
+              <p>
+                Our agricultural experts provide valuable tips to help you
+                maximize your crop yield and maintain soil health.
+              </p>
+              <img
+                src="https://picsum.photos/id/1024/800/600"
+                alt="Expert Tips"
+                class="img-fluid rounded"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="bg-light py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Testimonials</h2>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="testimonial text-center">
+              <p class="mb-0">
+                "This service helped me increase my crop yield by 30%! The
+                recommendations were spot on." - Farmer John
+              </p>
+              <img
+                src="https://picsum.photos/id/103/800/600"
+                alt="Farmer John"
+                class="img-fluid rounded-circle"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="testimonial text-center">
+              <p class="mb-0">
+                "I was               skeptical at first, but the soil testing and crop
+                recommendations were incredibly accurate." - Farmer Jane
+                </p>
+                <img
+                  src="https://picsum.photos/id/106/800/600"
+                  alt="Farmer Jane"
+                  class="img-fluid rounded-circle"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- FAQ Section -->
+      <section id="faq">
+        <div class="container">
+          <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+              <div class="faq-item">
+                <h3 class="text-center mb-3" onclick="toggleFaq(this)">
+                  How does soil testing work?
+                </h3>
+                <p>
+                  We use advanced techniques to measure the nutrient content and
+                  other properties of your soil, ensuring accurate results.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 mx-auto">
+              <div class="faq-item">
+                <h3 class="text-center mb-3" onclick="toggleFaq(this)">
+                  What crops can I grow?
+                </h3>
+                <p>
+                  Based on your soil test results, we provide a list of crops that
+                  are best suited for your soil conditions, ensuring optimal
+                  growth and yield.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Tips Section -->
+      <section id="tips" class="bg-light py-5">
+        <div class="container">
+          <h2 class="text-center mb-4">What We Do</h2>
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <p class="text-center">
+                We provide comprehensive soil testing services and expert
+                recommendations on the best crops to grow based on your soil
+                properties. Our goal is to help farmers optimize their crop yields
+                and ensure sustainable farming practices. We also offer expert
+                tips to maintain soil health and improve agricultural
+                productivity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Footer Section -->
+      <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+          <p>
+            &copy; 2024 Soil Testing and Crop Prediction. All Rights Reserved.
+          </p>
+        </div>
+      </footer>
+  
+      <!-- Bootstrap JS and dependencies -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+         <!-- Custom JavaScript for AJAX -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+          
+      <script>
+        $(document).ready(function () {
+          $("#soilForm").on("submit", function (e) {
+            e.preventDefault();
+            var formData = {
+              N: $("#N").val(),
+              P: $("#P").val(),
+              K: $("#K").val(),
+              temperature: $("#temperature").val(),
+              humidity: $("#humidity").val(),
+              ph: $("#ph").val(),
+              rainfall: $("#rainfall").val(),
+            };
+            $.ajax({
+              type: "POST",
+              url: "/predict", // Replace with your Flask route URL
+              data: formData,
+              dataType: "json",
+              encode: true,
+            })
+              .done(function (data) {
+                console.log(data);
+                var crops = data.json_data;
+                var $tableBody = $("#cropTableBody");
+                $tableBody.empty(); // Clear previous data
+  
+                if (crops.length > 0) {
+                  $("#tableContainer").show();
+                  $("#noDataMessage").hide();
+                  crops.forEach(function (crop) {
+                    var row = `<tr><td>${crop.Crop}</td><td>${crop.Score}</td></tr>`;
+                    $tableBody.append(row);
+                  });
+                } else {
+                  $("#tableContainer").hide();
+                  $("#noDataMessage").show();
+                }
+              })
+              .fail(function (error) {
+                console.error("Error occurred:", error);
+              });
+          });
+        });
+      </script>
+  </html>
+  

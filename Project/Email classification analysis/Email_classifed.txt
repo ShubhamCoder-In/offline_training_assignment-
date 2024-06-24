@@ -1,0 +1,4 @@
+
+ham	This service saved me from numerous phishing attacks. Highly recommend!
+ham	How accurate is the classification? The classification accuracy depends on various factors, including the quality of data and the algorithms used. Our system strives for high accuracy in detecting spam emails.
+ham	How accurate is the classification? The classification accuracy depends on various factors, including the quality of data and the algorithms used. Our system strives for high accuracy in detecting spam emails.
